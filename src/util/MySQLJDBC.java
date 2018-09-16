@@ -12,12 +12,12 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
+ * @author lypf2018
+ *
  * MySQL database utility class.
  * Implement based on PreparedStatement
  * for convenience to use JDBC and to code with SQL without dealing with SQLException
  * 
- * @author lypf2018
- *
  */
 public class MySQLJDBC {
 
