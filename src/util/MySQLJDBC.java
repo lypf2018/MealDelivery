@@ -1,7 +1,6 @@
 package util;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.DriverManager;
@@ -31,6 +30,13 @@ public class MySQLJDBC {
 	private Connection connection = null;
 	private PreparedStatement preparedStatement = null;
 
+	/**
+	 * @return the connection
+	 */
+	public Connection getConnection() {
+		return connection;
+	}
+
 	static {
 		LoadDriver();// Load MySQL driver
 	}
@@ -59,7 +65,7 @@ public class MySQLJDBC {
 	 * file,"database.properties" , in serverconf directory
 	 */
 	public MySQLJDBC() {
-		this("serverconf" + File.separator + "database.properties");
+		this(".." + File.separator + "database.properties");
 	}
 
 	/**
@@ -70,7 +76,7 @@ public class MySQLJDBC {
 	public MySQLJDBC(String configurationFile) {
 		Properties databaseProperties = new Properties();
 		try {
-			databaseProperties.load(new FileInputStream(configurationFile));
+			databaseProperties.load(this.getClass().getClassLoader().getResourceAsStream(configurationFile));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -241,4 +247,5 @@ public class MySQLJDBC {
 		close();
 		super.finalize();
 	}
+
 }
