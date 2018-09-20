@@ -11,6 +11,14 @@ public class Administrator {
 	private String username = null;
 	private String password = null;
 	/**
+	 * @param username
+	 * @param password
+	 */
+	public Administrator(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+	/**
 	 * @return the username
 	 */
 	public String getUsername() {

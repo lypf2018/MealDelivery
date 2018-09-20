@@ -7,11 +7,11 @@
 <head>
 <script type="text/javascript" src="script.js"></script>
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>Administrator Login Page</title>
 </head>
 <body>
 	<%
-		out.print("Hello!");
+		out.print("Hello! Administrator!");
 	%>
 
 	<%=new java.util.Date()%>
@@ -24,10 +24,11 @@
 		} else {
 			out.print("succeeded");
 		}
+		mySQLJDBC.close();
 	%>
 	<br/>
 	
-	<form name="loginform" action="LoginController" method="post" onsubmit="return loginValidate()" >
+	<form name="loginform" action="AdministratorLoginController" method="post" onsubmit="return loginValidate()" >
 	<br>
 	${message}<br>
 	${successMessage}<br>
@@ -36,8 +37,7 @@
 	Username: <input type="text" name="username" id="username"><br>
 	Password: <input type="password" name="password" id="password"><br>
 	<input type="submit" name="submit" value="login"><br>
-	<a href="administratorlogin.jsp">administrator login</a>
-	<a href="register.jsp">registration</a>
+	<a href="login.jsp">customer login</a>
 	
 	</form>
 
