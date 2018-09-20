@@ -36,22 +36,27 @@ public class LoginController extends HttpServlet {
 		String password = request.getParameter("password");
 		String submitType = request.getParameter("submit");
 		
-		Customer customer = new Customer(username, password);
-		customer = customerDao.validateCustomer(customer);
+		Customer customerToBeValidate = new Customer(username, password);
+		Customer customer = customerDao.validateCustomer(customerToBeValidate);
 
 		if(submitType.equals("login") && customer != null && customer.getFirstName() != null && customer.getLastName() != null){
 			request.setAttribute("message", "Hello " + customer.getFirstName() + " " + customer.getLastName());
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
-		}else if(submitType.equals("register")){
-//			customer.setName(request.getParameter("name"));
-//			customer.setUsername(request.getParameter("username"));
-//			customer.setPassword(request.getParameter("password"));
-//			customerDao.register(customer);
-//			request.setAttribute("successMessage", "Registration done, please login!");
-//			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}else{
-//			request.setAttribute("message", "Data Not Found! Please register!");
-//			request.getRequestDispatcher("register.jsp").forward(request, response);
+		} else if (submitType.equals("register")) {//if the email exists, what to do
+			customer = customerToBeValidate;
+			customer.setFirstName(request.getParameter("firstname"));
+			customer.setLastName(request.getParameter("lastname"));
+			customer.setStreet(request.getParameter("street"));
+			customer.setCity(request.getParameter("city"));
+			customer.setState(request.getParameter("state"));
+			customer.setZip(Integer.parseInt(request.getParameter("zip")));
+			customer.setPhone(request.getParameter("phone"));
+			customerDao.register(customer);
+			request.setAttribute("successMessage", "Registration done, please login!");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		} else {
+			request.setAttribute("message", "Data Not Found! Please register!");
+			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

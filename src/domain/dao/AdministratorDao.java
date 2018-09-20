@@ -27,19 +27,26 @@ public class AdministratorDao {
 	 *         or (2) null.
 	 */
 	public Administrator validateAdministrator(Administrator administrator) {
-		mySQLJDBC.setPreparedSql("select firstname,lastname,street,city,state,zip,phone from administrator where username=? and password=?", administrator.getUsername(), administrator.getPassword());
+		mySQLJDBC.setPreparedSql("select username,password from admin where username=? and password=?", administrator.getUsername(), administrator.getPassword());
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 		try {
 			if ((resultSet != null) && (resultSet.next())) {
-				mySQLJDBC.close();
 				return administrator;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mySQLJDBC.close();
 		return null;
+	}
+
+	/**
+	 * Before releasing resources, execute mySQLJDBC.close() method to ensure
+	 * this.preparedStatement and this.connection has been closed 
+	 */
+	protected void finalize() throws Throwable {
+		mySQLJDBC.close();
+		super.finalize();
 	}
 
 

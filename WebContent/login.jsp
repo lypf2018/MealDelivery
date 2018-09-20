@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="script.js"></script>
 <meta charset="UTF-8">
 <title>Login Page</title>
 </head>
@@ -23,7 +24,7 @@
 		} else {
 			out.print("succeeded");
 		}
-		%>
+	%>
 	<br/>
 	
 	<form name="loginform" action="LoginController" method="post" onsubmit="return loginValidate()" >
@@ -35,6 +36,7 @@
 	Username: <input type="text" name="username" id="username"><br>
 	Password: <input type="password" name="password" id="password"><br>
 	<input type="submit" name="submit" value="login"><br>
+	<a href="administratorlogin.jsp">administrator login</a>
 	<a href="register.jsp">registration</a>
 	
 	</form>

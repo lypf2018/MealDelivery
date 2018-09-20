@@ -48,7 +48,6 @@ public class CustomerDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mySQLJDBC.close();
 		return customerEmailExist;
 	}
 
@@ -64,7 +63,6 @@ public class CustomerDao {
 					customer.getEmail(), customer.getPassword(), customer.getFirstName(), customer.getLastName(),
 					customer.getStreet(), customer.getCity(), customer.getState(), customer.getZip(), customer.getPhone());
 			mySQLJDBC.executeUpdate();
-			mySQLJDBC.close();
 			return true;
 		}
 		return false;
@@ -91,15 +89,22 @@ public class CustomerDao {
 				customer.setState(resultSet.getString("state"));
 				customer.setZip(resultSet.getInt("zip"));
 				customer.setPhone(resultSet.getString("phone"));
-				mySQLJDBC.close();
 				return customer;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mySQLJDBC.close();
 		return null;
+	}
+
+	/**
+	 * Before releasing resources, execute mySQLJDBC.close() method to ensure
+	 * this.preparedStatement and this.connection has been closed 
+	 */
+	protected void finalize() throws Throwable {
+		mySQLJDBC.close();
+		super.finalize();
 	}
 
 }
