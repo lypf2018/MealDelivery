@@ -8,11 +8,12 @@
 <title>Register</title>
 </head>
 <body>
+	Welcome to Register<br>
 <form name="regform" action="LoginController" method="post" onsubmit="return regValidate()">
 	<br>${message}<br>
 	
-	Email: <input type="text" name="username"> <br>
-	<div id="username_error"></div><br>
+	Email: <input type="text" name="email"> <br>
+	<div id="email_error"></div><br>
 	
 	Password: <input type="password" name="password" id="password"> 
 	<br>
@@ -31,7 +32,7 @@
 	
 	<input type="submit" name="submit" value="register" >
 	<input type="reset" name="reset"><br>
-	<a href="login.jsp">login</a>
+	<a href="login.jsp">Login</a>
 	
 	</form>
 

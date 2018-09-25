@@ -28,7 +28,7 @@
 	%>
 	<br/>
 	
-	<form name="loginform" action="AdministratorLoginController" method="post" onsubmit="return loginValidate()" >
+	<form name="administratorloginform" action="AdministratorLoginController" method="post" onsubmit="return administratorLoginValidate()" >
 	<br>
 	${message}<br>
 	${successMessage}<br>
@@ -37,7 +37,7 @@
 	Username: <input type="text" name="username" id="username"><br>
 	Password: <input type="password" name="password" id="password"><br>
 	<input type="submit" name="submit" value="login"><br>
-	<a href="login.jsp">customer login</a>
+	<a href="login.jsp">Customer Login</a>
 	
 	</form>
 

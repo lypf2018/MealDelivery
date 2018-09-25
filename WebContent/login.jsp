@@ -25,6 +25,7 @@
 			out.print("succeeded");
 		}
 	%>
+	<a href="administratorlogin.jsp">Administrator Login</a>
 	<br/>
 	
 	<form name="loginform" action="LoginController" method="post" onsubmit="return loginValidate()" >
@@ -33,11 +34,10 @@
 	${successMessage}<br>
 	
 	
-	Username: <input type="text" name="username" id="username"><br>
+	Email: <input type="text" name="email" id="email"><br>
 	Password: <input type="password" name="password" id="password"><br>
 	<input type="submit" name="submit" value="login"><br>
-	<a href="administratorlogin.jsp">administrator login</a>
-	<a href="register.jsp">registration</a>
+	<a href="register.jsp">Registration</a>
 	
 	</form>
 

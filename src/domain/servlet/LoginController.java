@@ -32,17 +32,27 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CustomerDao customerDao = new CustomerDao();
 
-		String username = request.getParameter("username");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String submitType = request.getParameter("submit");
 		
-		Customer customerToBeValidate = new Customer(username, password);
+		Customer customerToBeValidate = new Customer(email, password);
 		Customer customer = customerDao.validateCustomer(customerToBeValidate);
 
+		// future work: 
+		// divided into following cases:(or separate login and register controller)
+		// 1) login :
+		//     (1)email not exists: data not found; validateEmail()
+		//     (2)email exists, but password is wrong: back to login.jsp and showing password wrong
+		//            call validateEmail() first, then validate password
+		//     (3)pass the validation: welcome
+		// 2) register :
+		//     (1)email exists: back to login.jsp and showing please try login or forget password
+		//     (2)email not exists: data not found
 		if(submitType.equals("login") && customer != null && customer.getFirstName() != null && customer.getLastName() != null){
 			request.setAttribute("message", "Hello " + customer.getFirstName() + " " + customer.getLastName());
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
-		} else if (submitType.equals("register")) {//if the email exists, what to do
+		} else if (submitType.equals("register") && customerToBeValidate.getEmail() != null) {//if the email exists, what to do
 			customer = customerToBeValidate;
 			customer.setFirstName(request.getParameter("firstname"));
 			customer.setLastName(request.getParameter("lastname"));
