@@ -8,6 +8,7 @@ package domain.bean;
  *
  */
 public class Customer {
+	private int id = 0;
 	private String email = null;
 	private String password = null;
 	private String firstName = null;
@@ -15,7 +16,7 @@ public class Customer {
 	private String street = null;
 	private String city = null;
 	private String state = null;
-	private int zip = 0;
+	private String zip = null;
 	private String phone = null;
 
 	/**
@@ -25,6 +26,18 @@ public class Customer {
 	public Customer(String email, String password) {
 		this.email = email;
 		this.password = password;
+	}
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 	/**
 	 * @return the email
@@ -113,13 +126,13 @@ public class Customer {
 	/**
 	 * @return the zip
 	 */
-	public int getZip() {
+	public String getZip() {
 		return zip;
 	}
 	/**
 	 * @param zip the zip to set
 	 */
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 	/**

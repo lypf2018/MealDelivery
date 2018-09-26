@@ -78,16 +78,17 @@ public class CustomerDao {
 	 *         or (2) null.
 	 */
 	public Customer validateCustomer(Customer customer) {
-		mySQLJDBC.setPreparedSql("select firstname,lastname,street,city,state,zip,phone from customer where email=? and password=?", customer.getEmail(), customer.getPassword());
+		mySQLJDBC.setPreparedSql("select cid,firstname,lastname,street,city,state,zip,phone from customer where email=? and password=?", customer.getEmail(), customer.getPassword());
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 		try {
 			if ((resultSet != null) && (resultSet.next())) {
+				customer.setId(resultSet.getInt("cid"));
 				customer.setFirstName(resultSet.getString("firstname"));
 				customer.setLastName(resultSet.getString("lastname"));
 				customer.setStreet(resultSet.getString("street"));
 				customer.setCity(resultSet.getString("city"));
 				customer.setState(resultSet.getString("state"));
-				customer.setZip(resultSet.getInt("zip"));
+				customer.setZip(resultSet.getString("zip"));
 				customer.setPhone(resultSet.getString("phone"));
 				return customer;
 			}

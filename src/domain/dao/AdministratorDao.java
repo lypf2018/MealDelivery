@@ -27,10 +27,11 @@ public class AdministratorDao {
 	 *         or (2) null.
 	 */
 	public Administrator validateAdministrator(Administrator administrator) {
-		mySQLJDBC.setPreparedSql("select username,password from admin where username=? and password=?", administrator.getUsername(), administrator.getPassword());
+		mySQLJDBC.setPreparedSql("select aid from admin where username=? and password=?", administrator.getUsername(), administrator.getPassword());
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 		try {
 			if ((resultSet != null) && (resultSet.next())) {
+				administrator.setId(resultSet.getInt("aid"));
 				return administrator;
 			}
 		} catch (SQLException e) {

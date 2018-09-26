@@ -8,6 +8,7 @@ package domain.bean;
  *
  */
 public class Administrator {
+	private int id = 0;
 	private String username = null;
 	private String password = null;
 	/**
@@ -17,6 +18,18 @@ public class Administrator {
 	public Administrator(String username, String password) {
 		this.username = username;
 		this.password = password;
+	}
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 	/**
 	 * @return the username
