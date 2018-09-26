@@ -59,7 +59,7 @@ public class LoginController extends HttpServlet {
 			customer.setStreet(request.getParameter("street"));
 			customer.setCity(request.getParameter("city"));
 			customer.setState(request.getParameter("state"));
-			customer.setZip(Integer.parseInt(request.getParameter("zip")));
+			customer.setZip(request.getParameter("zip"));
 			customer.setPhone(request.getParameter("phone"));
 			customerDao.register(customer);
 			request.setAttribute("successMessage", "Registration done, please login!");
