@@ -5,7 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-
+import domain.bean.*;
+import domain.dao.*;
 import util.MySQLJDBC;
 
 import javax.servlet.ServletException;
@@ -35,21 +36,11 @@ public class CartController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		MySQLJDBC mySQLJDBC = new MySQLJDBC();
 		HttpSession session = request.getSession(true);
 		int cid = (int) session.getAttribute("cid");
-		mySQLJDBC.setPreparedSql("select did from cart where cid = ?;", cid);
-		ResultSet res = mySQLJDBC.excuteQuery();
-		List<Integer> dish = new LinkedList<>();
-		
-		try {
-			while (res.next()) {
-				dish.add(res.getInt("did"));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		CartItemDao cartItemDao = new CartItemDao();
+		List<CartItem> dish = new LinkedList<>();
+		dish = cartItemDao.getCartDishes(cid);
 		request.setAttribute("name", session.getAttribute("firstname"));
 		request.setAttribute("dishes", dish);
 		request.getRequestDispatcher("cart.jsp").forward(request, response);
