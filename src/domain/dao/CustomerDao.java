@@ -108,4 +108,17 @@ public class CustomerDao {
 		super.finalize();
 	}
 
+	public boolean  updateCustomer(Customer customer) {
+		if (customer.getEmail() != null && customer.getEmail().length() > 0) {
+		mySQLJDBC.setPreparedSql("UPDATE customer SET firstname=?, lastname=?, street=?, city=?, state=?, zip=?, phone=? WHERE email=? and password=?", customer.getFirstName(), customer.getLastName(), customer.getStreet(), customer.getCity(), customer.getState(), customer.getZip(), customer.getPhone(),customer.getEmail(), customer.getPassword());
+	//	mySQLJDBC.setPreparedSql("insert into customer(email,password,firstname,lastname,street,city,state,zip,phone) values(?,?,?,?,?,?,?,?,?);",
+	//				"xxy@utdallas.edu", "123456", customer.getFirstName(), customer.getLastName(),
+	//				customer.getStreet(), customer.getCity(), customer.getState(), customer.getZip(), customer.getPhone());
+		mySQLJDBC.executeUpdate();
+		mySQLJDBC.close();
+		return true;
+		}
+		return false;
+	}
+	
 }

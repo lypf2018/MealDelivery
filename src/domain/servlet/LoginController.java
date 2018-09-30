@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import domain.bean.Customer;
 import domain.dao.CustomerDao;
@@ -50,8 +51,26 @@ public class LoginController extends HttpServlet {
 		//     (1)email exists: back to login.jsp and showing please try login or forget password
 		//     (2)email not exists: data not found
 		if(submitType.equals("login") && customer != null && customer.getFirstName() != null && customer.getLastName() != null){
-			request.setAttribute("message", "Hello " + customer.getFirstName() + " " + customer.getLastName());
-			request.getRequestDispatcher("welcome.jsp").forward(request, response);
+//			Gary
+			HttpSession session=request.getSession();
+			session.setAttribute("cid", customer.getId());
+			session.setAttribute("email", customer.getEmail());
+			session.setAttribute("fName", customer.getFirstName());
+			session.setAttribute("lName", customer.getLastName());
+			session.setAttribute("passwd", customer.getPassword());
+			request.getRequestDispatcher("menu.jsp").forward(request, response);
+			
+//			hb
+//			HttpSession session=request.getSession();
+//			session.setAttribute("email", customer.getEmail());
+//			session.setAttribute("fName", customer.getFirstName());
+//			session.setAttribute("lName", customer.getLastName());
+//			session.setAttribute("passwd", customer.getPassword());
+//			request.getRequestDispatcher("ProfileController").forward(request, response);
+
+//			yzc
+//			request.setAttribute("message", "Hello " + customer.getFirstName() + " " + customer.getLastName());
+//			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 		} else if (submitType.equals("register") && customerToBeValidate.getEmail() != null) {//if the email exists, what to do
 			customer = customerToBeValidate;
 			customer.setFirstName(request.getParameter("firstname"));
