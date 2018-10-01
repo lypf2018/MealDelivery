@@ -42,7 +42,7 @@ function del() {
 							<td><%= dish.getId() %></td>
 							<td><%= dish.getName() %></td>
 							<td><%= dish.getDes() %></td>
-							<td><img src="<%=dish.getPic() %>"/></td>
+							<td><img src="<%=request.getContextPath()%>/image/<%=dish.getPic() %>"/></td>
 							<td><%= dish.getPrice() %></td>
 							<td><%= dish.getDCId() %></td>
 							<td>
