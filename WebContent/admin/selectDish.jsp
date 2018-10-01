@@ -17,8 +17,8 @@ function del() {
 <body>
 <div>
 	<div float='left' width='20%' background-color='red'">
-		<a href="AdAddDishController">add dish</a><br/>
-		<a href="showOrder">show order</a>
+		<a href="<%=request.getContextPath()%>/admin/AdAddDishController">add dish</a><br/>
+		<a href="<%=request.getContextPath()%>/admin/showOrder">show order</a>
 	</div>
 	<div float='right' width='60%'>
 		<table border='1' cellspacing='0' width='60%'>
@@ -46,10 +46,10 @@ function del() {
 							<td><%= dish.getPrice() %></td>
 							<td><%= dish.getDCId() %></td>
 							<td>
-								<a href="AdEditDishController?id=<%=dish.getId()%>">edit</a>
+								<a href="<%=request.getContextPath()%>/admin/AdEditDishController?id=<%=dish.getId()%>">edit</a>
 							</td>
 							<td>
-								<a href="AdDeleteDishController?id=<%=dish.getId()%>" onclick="javascript:return del();">delete</a>
+								<a href="<%=request.getContextPath()%>/admin/AdDeleteDishController?id=<%=dish.getId()%>" onclick="javascript:return del();">delete</a>
 							</td>
 						</tr>
 						<%

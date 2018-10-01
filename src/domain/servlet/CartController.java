@@ -1,14 +1,10 @@
 package domain.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import domain.bean.*;
 import domain.dao.*;
-import util.MySQLJDBC;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +39,7 @@ public class CartController extends HttpServlet {
 		dish = cartItemDao.getCartDishes(cid);
 		request.setAttribute("name", session.getAttribute("firstname"));
 		request.setAttribute("dishes", dish);
-		request.getRequestDispatcher("cart.jsp").forward(request, response);
+		request.getRequestDispatcher("/cart.jsp").forward(request, response);
 	}
 
 	/**

@@ -19,7 +19,7 @@ public class CategoryDao {
 	
 	public List<Category> selectCategory() {
 		List<Category> list = new ArrayList<Category>();
-		mySQLJDBC.setPreparedSql("select * from category order by catid;","");
+		mySQLJDBC.setPreparedSql("select * from category order by catid;");
 		ResultSet rs = mySQLJDBC.excuteQuery();
 		try {
 			while(rs.next()) {

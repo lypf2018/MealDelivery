@@ -1,8 +1,6 @@
 package domain.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.bean.Order;
 import domain.dao.AdminOrderDao;
-import util.MySQLJDBC;
 
 /**
  * Servlet implementation class showOrder
@@ -38,7 +35,7 @@ public class showOrder extends HttpServlet {
 		AdminOrderDao orderDao = new AdminOrderDao();
 		ArrayList<Order> list = orderDao.displayOrder();
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("adminShowOrder.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/adminShowOrder.jsp").forward(request, response);
 	}
 
 	/**

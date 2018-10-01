@@ -9,7 +9,7 @@
 <body>
 <h1> ${message} !!! </h1>
 
-	<a href="logout.jsp">logout</a>
+	<a href="<%=request.getContextPath()%>/logout.jsp">logout</a>
 
 </body>
 </html>

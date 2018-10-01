@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("fName", customer.getFirstName());
 			session.setAttribute("lName", customer.getLastName());
 			session.setAttribute("passwd", customer.getPassword());
-			request.getRequestDispatcher("menu.jsp").forward(request, response);
+			request.getRequestDispatcher("/menu.jsp").forward(request, response);
 			
 //			hb
 //			HttpSession session=request.getSession();
@@ -82,10 +82,10 @@ public class LoginController extends HttpServlet {
 			customer.setPhone(request.getParameter("phone"));
 			customerDao.register(customer);
 			request.setAttribute("successMessage", "Registration done, please login!");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "Data Not Found! Please register!");
-			request.getRequestDispatcher("register.jsp").forward(request, response);
+			request.getRequestDispatcher("/register.jsp").forward(request, response);
 		}
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

@@ -42,7 +42,7 @@ public class insertCartController extends HttpServlet {
 		} else {
 			cartItemDao.insertCart(cid, did, quantity);
 		}
-		request.getRequestDispatcher("dishdetail.jsp").forward(request, response);
+		request.getRequestDispatcher("/dishdetail.jsp").forward(request, response);
 	}
 
 	/**

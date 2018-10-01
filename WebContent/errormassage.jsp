@@ -9,6 +9,6 @@
 <body>
 <h1> ${message} !!! </h1>
 
-	<a href="login.jsp">Login</a>
+	<a href="<%=request.getContextPath()%>/login.jsp">Login</a>
 </body>
 </html>

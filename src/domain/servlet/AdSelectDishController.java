@@ -1,7 +1,6 @@
 package domain.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class AdSelectDishController extends HttpServlet {
 		List<Dish> list = new ArrayList<Dish>();
 		list = adminDishDao.selectDish(0);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("selectDish.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/selectDish.jsp").forward(request, response);
 	}
 
 	/**

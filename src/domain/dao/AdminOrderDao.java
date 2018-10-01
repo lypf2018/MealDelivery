@@ -13,7 +13,7 @@ public class AdminOrderDao {
 	
 	public ArrayList<Order> displayOrder(){
 		ArrayList<Order> list = new ArrayList<>();
-		mySQLJDBC.setPreparedSql("select * from customerorder;","");
+		mySQLJDBC.setPreparedSql("select * from customerorder;");
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 //		response.getWriter().println("hello");
 		try {

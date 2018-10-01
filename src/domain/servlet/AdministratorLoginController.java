@@ -44,7 +44,7 @@ public class AdministratorLoginController extends HttpServlet {
 //			response.sendRedirect("../admin/AdSelectDishController");
 		} else {
 			request.setAttribute("message", "Data Not Found! Please contact administrator!");
-			request.getRequestDispatcher("administratorlogin.jsp").forward(request, response);
+			request.getRequestDispatcher("/administratorlogin.jsp").forward(request, response);
 		}
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

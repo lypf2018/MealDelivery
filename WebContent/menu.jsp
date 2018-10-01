@@ -1,16 +1,16 @@
 <%@ page import="java.util.*" %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Menu</title>
 </head>
 <body>
-	<a href="ProfileController">profile</a><br>
-	<a href="CartController">shopping cart</a>
+	<a href="<%=request.getContextPath()%>/ProfileController">profile</a><br>
+	<a href="<%=request.getContextPath()%>/CartController">shopping cart</a>
 
 	<div class="container">
 		<h2>Menu</h2>
