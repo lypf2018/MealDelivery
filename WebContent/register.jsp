@@ -9,7 +9,7 @@
 </head>
 <body>
 	Welcome to Register<br>
-<form name="regform" action="LoginController" method="post" onsubmit="return regValidate()">
+<form name="regform" action="<%=request.getContextPath()%>/LoginController" method="post" onsubmit="return regValidate()">
 	<br>${message}<br>
 	
 	Email: <input type="text" name="email"> <br>
@@ -32,7 +32,7 @@
 	
 	<input type="submit" name="submit" value="register" >
 	<input type="reset" name="reset"><br>
-	<a href="login.jsp">Login</a>
+	<a href="<%=request.getContextPath()%>/login.jsp">Login</a>
 	
 	</form>
 

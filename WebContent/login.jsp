@@ -25,10 +25,10 @@
 			out.print("succeeded");
 		}
 	%>
-	<a href="administratorlogin.jsp">Administrator Login</a>
+	<a href="<%=request.getContextPath()%>/administratorlogin.jsp">Administrator Login</a>
 	<br/>
 	
-	<form name="loginform" action="LoginController" method="post" onsubmit="return loginValidate()" >
+	<form name="loginform" action="<%=request.getContextPath()%>/LoginController" method="post" onsubmit="return loginValidate()" >
 	<br>
 	${message}<br>
 	${successMessage}<br>
@@ -37,7 +37,7 @@
 	Email: <input type="text" name="email" id="email"><br>
 	Password: <input type="password" name="password" id="password"><br>
 	<input type="submit" name="submit" value="login"><br>
-	<a href="register.jsp">Registration</a>
+	<a href="<%=request.getContextPath()%>/register.jsp">Registration</a>
 	
 	</form>
 

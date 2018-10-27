@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome Page</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1> ${message} !!! </h1>
-
-	<a href="<%=request.getContextPath()%>/logout.jsp">logout</a>
-
+	<h1> ${msg}</h1>
+	<br/>
+	<a href="<%=request.getContextPath()%>/admin/AdSelectDishController">Back to dish list</a>
+	
 </body>
 </html>
