@@ -3,3 +3,4 @@
 /.project
 /.settings/
 /WebContent/WEB-INF/database.properties
+/chromedriver.exe
