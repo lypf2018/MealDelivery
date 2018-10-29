@@ -9,7 +9,7 @@
 </head>
 <body>
 	Welcome to Register<br>
-<form name="regform" action="<%=request.getContextPath()%>/LoginController" method="post" onsubmit="return regValidate()">
+<form name="regform" action="<%=request.getContextPath()%>/RegisterController" method="post" onsubmit="return regValidate()">
 	<br>${message}<br>
 	
 	Email: <input type="text" name="email"> <br>
