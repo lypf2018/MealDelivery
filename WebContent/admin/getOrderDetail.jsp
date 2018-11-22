@@ -1,0 +1,53 @@
+<%@page import="domain.bean.*"%>
+<%@page import="java.util.*"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<% String orderId = (String)request.getAttribute("id");
+   Order order = (Order)request.getAttribute("order");
+   LinkedList<Dish> dishList = order.getDish();
+%>
+
+<h3>Order Number: <%=orderId %></h3>
+<div>
+	<table border='1' cellspacing='0' width='100%'>
+	  	<tr>
+	  		<th>Dish ID</th>
+	  		<th>Dish Name</th>
+	  		<th>Price</th>
+	  		<th>Amount</th>
+	  	</tr>
+	  	<% for(Dish dish : dishList){ %>
+	  		<tr>
+		  		<td><%= dish.getId() %></td>
+		  		<td><%= dish.getName() %></td>
+		  		<td><%= dish.getPrice() %></td>
+		  		<td><%= dish.getDish_amount() %></td>
+		  	</tr>
+	  	<%} %>
+  	</table>
+</div>
+<%--<div>
+	
+	<form action="<%=request.getContextPath()%>/admin/ShowOrder" name = "updateStatus" method = "post">
+		status:
+		<%session.setAttribute("orderId",orderId); %>
+		<select name="status">
+		    <option value="undergoing">undergoing</option>
+		    <option value="completed">completed</option>
+	  </select>
+	  <input type="submit">
+	</form>
+</div> --%>
+<div>
+<a href="<%=request.getContextPath()%>/admin/ShowOrder?id=all ">Back</a>
+</div>
+
+</body>
+</html>
