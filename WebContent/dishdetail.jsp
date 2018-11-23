@@ -58,10 +58,10 @@ function add(){
 	<td>numbers:</td><br/>
 <form action="<%=request.getContextPath()%>/insertCartController" method="post">
     <input type="hidden" name="did" id="did" value = <%= dish.getId() %>><br>
-    <input type="button" value="+"  onclick="add()"/>
+    <input type="button" value="-" id = "decrease" onclick="del()"/>
 	<input type="text" name="quantity" id="quantity" value=1 size="4"/>
-	<input type="button" value="-"  onclick="del()"/>
-  <input type="submit" name="submit" value="Add to cart"><br>    
+	<input type="button" value="+"  id = "increase" onclick="add()"/>
+  <input type="submit" name="submit" id = "add" value="Add to cart"><br>    
 </form><br/>
   						<%
 					}
