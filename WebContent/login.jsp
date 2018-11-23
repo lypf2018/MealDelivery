@@ -27,7 +27,6 @@
 	%>
 	<a href="administratorlogin.jsp">Administrator Login</a>
 	<br/>
-	
 	<form name="loginform" action="LoginController" method="post" onsubmit="return loginValidate()" >
 	<br>
 	${message}<br>

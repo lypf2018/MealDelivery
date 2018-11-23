@@ -1,3 +1,6 @@
+
+
+
 function regValidate() {
 	var email = document.forms["regform"]["email"].value;
 	var password = document.forms["regform"]["password"].value;

@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("fName", customer.getFirstName());
 			session.setAttribute("lName", customer.getLastName());
 			session.setAttribute("passwd", customer.getPassword());
-			request.getRequestDispatcher("menu.jsp").forward(request, response);
+			request.getRequestDispatcher("/MenuController").forward(request, response);
 			
 //			hb
 //			HttpSession session=request.getSession();
