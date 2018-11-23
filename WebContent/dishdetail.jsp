@@ -56,13 +56,13 @@ function add(){
 		<!-- <button>test</button> -->
 	</div>
 	<td>numbers:</td><br/>
-<input type="button" value="+" id="add" onclick="add()"/>
 <form action="<%=request.getContextPath()%>/insertCartController" method="post">
     <input type="hidden" name="did" id="did" value = <%= dish.getId() %>><br>
+    <input type="button" value="+"  onclick="add()"/>
 	<input type="text" name="quantity" id="quantity" value=1 size="4"/>
+	<input type="button" value="-"  onclick="del()"/>
   <input type="submit" name="submit" value="Add to cart"><br>    
 </form><br/>
-<input type="button" value="-" id="del" onclick="del()"/>
   						<%
 					}
 				}
