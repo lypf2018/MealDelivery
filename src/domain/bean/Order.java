@@ -1,14 +1,13 @@
 package domain.bean;
 
 import java.util.LinkedList;
-import domain.bean.Dish;
 
 public class Order {
 	private String orderID = null;
 	private String customerID = null;
-	private LinkedList<Dish> dish = null;
+	private LinkedList<Dish> dish = new LinkedList<>();
 	private String time = null;
-	private int status = 0;
+	private String status;
 	private double bill = 0;
 	
 //	public Order() {
@@ -62,11 +61,11 @@ public class Order {
 	
 	
     //getter and setter for status
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 	
-	public void setStatus(int s) {
+	public void setStatus(String s) {
 		this.status = s;
 	}
 	

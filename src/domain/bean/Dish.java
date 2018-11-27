@@ -8,7 +8,16 @@ public class Dish {
 	private String dish_pic;
 	private double dish_price;
 	private int dish_cat_id;
+	private int dish_amount;
 	
+	public int getDish_amount() {
+		return dish_amount;
+	}
+
+	public void setDish_amount(int dish_amount) {
+		this.dish_amount = dish_amount;
+	}
+
 	public Dish() {}
 	
 	public int getId() {

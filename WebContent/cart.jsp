@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/MenuController">Menu</a><br>
 <h1>${name} this is the cart</h1>
 <%@ page import="java.util.*" %>
 <%@ page import="domain.bean.*" %>
@@ -18,6 +19,7 @@
     <th>Price</th>
     <th>Quantity</th>
     <th>Total</th>
+    <th>-/+</th>
   </tr>
 
 <% for ( int i = 0; i < dishes.size(); i++) { %>
@@ -32,9 +34,22 @@
     <td>$<%=price %></td>
     <td><%=quantity %></td>
     <td>$<%=totalPrice %></td>
+    <td>
+	<form action="<%=request.getContextPath()%>/insertCartController" method="post">
+	<input type="hidden" name="did" id="did" value = <%= dishes.get(i).getId() %>>
+	<input type="hidden" name="quantity" id="quantity" value=1>
+  	<input type="submit" name="submit" value="+"><br>    
+	</form>
+	<form action="<%=request.getContextPath()%>/insertCartController" method="post">
+	<input type="hidden" name="did" id="did" value = <%= dishes.get(i).getId() %>>
+	<input type="hidden" name="quantity" id="quantity" value=-1>
+  	<input type="submit" name="submit" value="-"><br>    
+	</form>
+	</td>
   </tr>
 <% } %>
 
 </table>
+<a href="<%=request.getContextPath()%>/CheckOutController">Check Out</a><br>
 </body>
 </html>

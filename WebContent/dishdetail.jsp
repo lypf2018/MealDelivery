@@ -30,6 +30,7 @@ function add(){
 <body>
 <a href="<%=request.getContextPath()%>/ProfileController">profile</a><br>
 <a href="<%=request.getContextPath()%>/CartController">shopping cart</a><br>
+<a href="<%=request.getContextPath()%>/MenuController">menu</a><br>
 			<%
 				List<Dish> list = (List<Dish>)request.getAttribute("list");
 				if(list != null && list.size() > 0){

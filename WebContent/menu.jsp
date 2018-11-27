@@ -14,7 +14,8 @@
 </head>
 <body>
 
-	<a href="<%=request.getContextPath()%>/ProfileController">profile</a><br>
+	<a href="<%=request.getContextPath()%>/ProfileController" id="profile">profile</a><br>
+	<a href="<%=request.getContextPath()%>/ViewOrderController" id="order">orders</a><br>
 	<a href="<%=request.getContextPath()%>/CartController">shopping cart</a>
 	
 	<style>
