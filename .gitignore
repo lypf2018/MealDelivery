@@ -2,4 +2,6 @@
 /.classpath
 /.project
 /.settings/
-/WebContent/WEB-INF/database.properties
+/.DS_Store
+/WebContent/.DS_Store
+/WebContent/WEB-INF/.DS_Store

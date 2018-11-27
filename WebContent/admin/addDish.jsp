@@ -6,14 +6,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add Dish Page</title>
 </head>
 <body>
 	<h1>Add Dish</h1>
  	
-
-	<form method="post" action="<%=request.getContextPath()%>/admin/AdAddDishController" name="Add_Dish">
+ 	<form method="post" action="<%=request.getContextPath()%>/DishMngController?type=addPic" enctype="multipart/form-data">
+ 		<label for="pic">Dish_Picture:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+ 		<input type="file" name="pic"/>
+ 		<input type="submit" value="upload_picture"/>	
+ 	</form>
+	<%
+		String filePath = request.getAttribute("filePath") != null ? request.getAttribute("filePath").toString() : "";
+		String msgPic = request.getAttribute("msg") != null ? request.getAttribute("msg").toString() : "";
+	%>
+	<div><label>${ msg }</label></div>
+ 	
+	<form method="post" action="<%=request.getContextPath()%>/DishMngController?type=add" name="Add_Dish">
 		<table frame=void rules=none border='1'>
+			<input type="hidden" id="filePath" name="filePath" value="<%=filePath %>"><br/>
 			<tr>
 				<td><label for="name">Dish_Name: </label></td>
 				<td><input type="text" name="dishname" id="dish_name" value=""><br/></td>
@@ -21,10 +32,6 @@
 			<tr>
 				<td><label for="des">Dish_Description: </label></td>
 				<td><textarea cols="50" rows="10" name="des" id="dish_des">please input dish description...</textarea><br/></td>
-			</tr>
-			<tr>
-				<td><label for="pic">Dish_Picture:</label></td>
- 				<td><input type="text" name="picture"/></td>
 			</tr>
 			<tr>
 				<td><label for="price">Dish_Price: </label></td>
@@ -46,7 +53,7 @@
 				</select>
 			</td>
 		</table>
-		<button>Confirm Dish</button>
+		<button name="submit" value="add">Confirm Dish</button>
 	</form>
  	
 </body>

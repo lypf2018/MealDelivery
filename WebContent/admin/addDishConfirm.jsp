@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add Dish Confirm Page</title>
 </head>
 <body>
-	<h1> ${msg}</h1>
+	<h1 id="msg"> ${msg}</h1>
 	<br/>
-	<a href="<%=request.getContextPath()%>/admin/AdSelectDishController">Back to dish list</a>
-	
+	<a href="<%=request.getContextPath()%>/DishMngController?type=menu">Back to dish list</a>
 </body>
 </html>
