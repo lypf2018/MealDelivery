@@ -18,7 +18,7 @@ function del() {
 <div>
 	<div float='left' width='20%' background-color='red'">
 		<a href="<%=request.getContextPath()%>/admin/AdAddDishController">add dish</a><br/>
-		<a href="<%=request.getContextPath()%>/admin/showOrder">show order</a>
+		<a href="<%=request.getContextPath()%>/admin/ShowOrderController?id=all">show order</a>
 	</div>
 	<div float='right' width='60%'>
 		<table border='1' cellspacing='0' width='60%'>
