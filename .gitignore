@@ -2,5 +2,11 @@
 /.classpath
 /.project
 /.settings/
+/src/.DS_Store
+/src/test/.DS_Store
+/.DS_Store
 /WebContent/WEB-INF/database.properties
+/WebContent/.DS_Store
+/WebContent/WEB-INF/.DS_Store
 /chromedriver.exe
+/chromedriver
