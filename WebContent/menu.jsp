@@ -58,7 +58,7 @@
 						<figure>
  							<p><img src="<%=request.getContextPath()%>/image/<%=dish.getPic() %>"
     							alt="<%=dish.getName()%>">
-  							<figcaption><a href = "<%=request.getContextPath()%>/DishDetailController?id=<%=dish.getId()%>" id = <%=dish.getId()%> ><%=dish.getName()%></a></figcaption>
+  							<figcaption><a href = "<%=request.getContextPath()%>/DishDetailController?id=<%=dish.getId()%>"><%=dish.getName()%></a></figcaption>
 						</figure>
 						</div>
   						</tr>
