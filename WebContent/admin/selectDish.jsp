@@ -46,7 +46,7 @@ function del() {
 				if(list != null && list.size() > 0){
 					for(Dish dish : list){
 						%>
-						<tr>
+						<tr id="dishID">
 							<td width="10%"><%= dish.getId() %></td>
 							<td width="16%"><%= dish.getName() %></td>
 							<td width="14%"><%= dish.getDes() %></td>
