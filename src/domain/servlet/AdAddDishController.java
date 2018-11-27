@@ -1,11 +1,8 @@
 package domain.servlet;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +38,7 @@ public class AdAddDishController extends HttpServlet {
 		CategoryDao categoryDao = new CategoryDao();
 		List<Category> cate_list  = categoryDao.selectCategory();
 		request.setAttribute("category", cate_list);
-		request.getRequestDispatcher("addDish.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/addDish.jsp").forward(request, response);
 		
 	}
 
@@ -67,11 +64,11 @@ public class AdAddDishController extends HttpServlet {
 	    int result = adminDishDao.insertDish(dish);
 		if(result > 0){
 			 request.setAttribute("msg", "Successfully add a new dish!");
-			 request.getRequestDispatcher("addDishConfirm.jsp").forward(request, response);
+			 request.getRequestDispatcher("/admin/addDishConfirm.jsp").forward(request, response);
 			 
 		}else {
 			request.setAttribute("msg", "Failed to add a new dish!");
-			 request.getRequestDispatcher("addDishConfirm.jsp").forward(request, response);
+			 request.getRequestDispatcher("/admin/addDishConfirm.jsp").forward(request, response);
 		}
 	}
 

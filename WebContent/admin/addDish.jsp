@@ -12,7 +12,7 @@
 	<h1>Add Dish</h1>
  	
 
-	<form method="post" action="/admin/AdAddDishController" name="Add_Dish">
+	<form method="post" action="<%=request.getContextPath()%>/admin/AdAddDishController" name="Add_Dish">
 		<table frame=void rules=none border='1'>
 			<tr>
 				<td><label for="name">Dish_Name: </label></td>

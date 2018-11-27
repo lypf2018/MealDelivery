@@ -56,7 +56,7 @@ tr:nth-child(even) {
 </table>
 <br /> 
 
-<a href="profileedit.jsp">Edit Profile</a>
+<a href="<%=request.getContextPath()%>/profileedit.jsp">Edit Profile</a>
 
 </body>
 </html>

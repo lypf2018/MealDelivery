@@ -73,6 +73,16 @@ public class CartItemDao {
 		return false;
 	}
 	
+	public boolean deleteItem(int cid, String did){
+		mySQLJDBC.setPreparedSql("delete from cart\r\n" + 
+				"where cid = ? and did =?;", cid, did);
+		int res = mySQLJDBC.executeUpdate();
+		if (res != -1) {
+			return true;
+		}
+		return false;
+	}
+	
 	
 
 	/**

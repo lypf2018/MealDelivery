@@ -7,7 +7,7 @@
 <title>edit profile</title>
 </head>
 <body>
-	<form name="proflieform" action="ProfileEditController" method="post" >
+	<form name="proflieform" action="<%=request.getContextPath()%>/ProfileEditController" method="post" >
 
 	Last Name: <br><input type="text" name="LastName" id="lastname" required><br>
 	First Name: <br><input type="text" name="FirstName" id="firstname" required><br>

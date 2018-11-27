@@ -35,7 +35,7 @@ public class ProfileEditController extends HttpServlet {
 		 
 		 if(session==null || session.getAttribute("email")==null) {
 			 request.setAttribute("message", "Please Login first");
-			 request.getRequestDispatcher("errormassage.jsp").forward(request, response);
+			 request.getRequestDispatcher("/errormassage.jsp").forward(request, response);
 		 }
 		 else {
 			 CustomerDao customerDao = new CustomerDao();
@@ -48,7 +48,7 @@ public class ProfileEditController extends HttpServlet {
 			 customer.setZip(request.getParameter("ZipCode"));
 			 customer.setPhone(request.getParameter("Phone"));
 			 customerDao.updateCustomer(customer);
-			 request.getRequestDispatcher("ProfileController").forward(request, response);
+			 request.getRequestDispatcher("/ProfileController").forward(request, response);
 		 }
 	}
 
