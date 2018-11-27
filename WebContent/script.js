@@ -24,11 +24,11 @@ function regValidate() {
         document.forms["regform"]["retry-password"].focus();
         return false;
     }else if(password != rpassword){
-    	alert("Password doesnt match");
+    	alert("Retry-Password doesn't match");
         document.forms["regform"]["password"].focus();
         return false;
     }else if (firstname == "") {
-        alert("First Name must be filled out");
+        alert("First name must be filled out");
         document.forms["regform"]["firstname"].focus();
         return false;
     }else if (lastname == "") {

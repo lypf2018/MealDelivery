@@ -38,7 +38,7 @@ public class CustomerDao {
 	 * @param customer customer to be verified
 	 * @return existence status, either true for success or false for failure
 	 */
-	private boolean customerEmailExist(Customer customer) {
+	public boolean customerEmailExist(Customer customer) {
 		boolean customerEmailExist = false;
 		mySQLJDBC.setPreparedSql("select cid from customer where email=?;", customer.getEmail());
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
@@ -57,7 +57,7 @@ public class CustomerDao {
 	 * @param customer customer to be inserted
 	 * @return insert status, either true for success or false for failure
 	 */
-	private boolean insertCustomer(Customer customer) {
+	public boolean insertCustomer(Customer customer) {
 		if (customer.getEmail() != null && customer.getEmail().length() > 0) {
 			mySQLJDBC.setPreparedSql("insert into customer(email,password,firstname,lastname,street,city,state,zip,phone) values(?,?,?,?,?,?,?,?,?);",
 					customer.getEmail(), customer.getPassword(), customer.getFirstName(), customer.getLastName(),

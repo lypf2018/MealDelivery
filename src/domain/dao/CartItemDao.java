@@ -37,7 +37,7 @@ public class CartItemDao {
 		return items;
 	}
 	
-	public boolean insertCart(int cid, String did, String quantity) {
+	public boolean insertCart(int cid, String did, int quantity) {
 		mySQLJDBC.setPreparedSql("insert into cart (cid, did, quantity)\r\n" + 
 				"values (?, ?, ?);", cid, did, quantity);
 		int res = mySQLJDBC.executeUpdate();
@@ -63,9 +63,19 @@ public class CartItemDao {
 		return null;
 	}
 	
-	public boolean updateItem(int cid, int did, int quantity){
+	public boolean updateItem(int cid, String did, int quantity){
 		mySQLJDBC.setPreparedSql("update cart set quantity = ?\r\n" + 
 				"where cid = ? and did =?;", quantity, cid, did);
+		int res = mySQLJDBC.executeUpdate();
+		if (res != -1) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean deleteItem(int cid, String did){
+		mySQLJDBC.setPreparedSql("delete from cart\r\n" + 
+				"where cid = ? and did =?;", cid, did);
 		int res = mySQLJDBC.executeUpdate();
 		if (res != -1) {
 			return true;
