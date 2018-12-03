@@ -1,12 +1,12 @@
 <%@page import="domain.bean.Order"%>
 <%@page import="java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Food Delivery</title>
+<meta charset="UTF-8">
+<title>ad show order</title>
 <script type="text/javascript">
 /*	function updateStatus(Stirng s){
 		var xhttp;
@@ -23,6 +23,7 @@
 </head>
 <h2>All orders information</h2>
 <body>
+<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 <% ArrayList<Order> list = (ArrayList)request.getAttribute("list"); %>
 	<table border='1' cellspacing='0' width='100%'>
   	<tr>
@@ -34,7 +35,7 @@
   	</tr>
   	<% for(Order order : list){ %>
   			<tr>
-  				<% String url = request.getContextPath() + "/admin/ShowOrder?id=" + order.getOrderID(); %>
+  				<% String url = request.getContextPath() + "/admin/ShowOrderController?id=" + order.getOrderID(); %>
   				<td><a href = <%=url %>><%= order.getOrderID() %></a></td>
   				<td><%= order.getCustomerID() %></td>
   				<td><%= order.getBill() %></td>
@@ -42,9 +43,9 @@
   				<td>
   					<%--= order.getStatus() --%>
   					 <%-- <input type = "text" value = <%= order.getStatus()%> name = "status"/>--%>
-  					 <form action="<%=request.getContextPath()%>/admin/ShowOrder" name = "updateStatus" method = "post"> 
-  					<input type = "hidden" name = "orderId" value = "<%=order.getOrderID() %>">
-	  				<select name="status" onchange="">
+  					 <form action="<%= request.getContextPath()%>/admin/ShowOrderController"  id "<%=order.getOrderID() %>" method = "post"> 
+  						<input type = "hidden" name = "orderId" value = "<%=order.getOrderID() %>">
+	  					<select name="status" onchange="">
 							<option value=""><%= order.getStatus() %></option>
 							<option value="undergoing">undergoing</option>
 							<option value="completed">completed</option>
@@ -57,7 +58,7 @@
   	<%} %>
   </table>
   <div>
-  <a href = "<%=request.getContextPath()%>/admin/AdSelectDishController">Back</a>
+  <a href = "<%=request.getContextPath()%>/DishMngController?type=menu">Back</a>
   </div>
 </body>
 </html>

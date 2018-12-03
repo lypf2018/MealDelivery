@@ -47,7 +47,7 @@ public class AdminOrderDao {
 		returnValue.setOrderID(id);
 //		System.out.println("orderId = "+returnValue.getOrderID());
 //		ArrayList<Dish> dishList = new ArrayList<>();
-		mySQLJDBC.setPreparedSql("select * from orderdetails, dish where orderdetails.did = dish.did and oid ="+id+";");
+		mySQLJDBC.setPreparedSql("select * from orderdetails, dish where orderdetails.did = dish.did and oid =?;",id);
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 //		response.getWriter().println("hello");
 		try {
@@ -70,19 +70,15 @@ public class AdminOrderDao {
 	}
 	
 	public void updateStatus(String s, String orderId) {
-//		int a = 1;
-//		int rows = 0;
+		int a = 1;
 //		System.out.print("s = " + s);
-////		if(s.equals("undergoing"))a = 0;
-////		else a = 1;
-////		System.out.print("aaa");
-//		mySQLJDBC.setPreparedSql("update customerorder set status ="+ a + "where oid =" + orderId+ ";");
-////		ResultSet resultSet = mySQLJDBC.excuteQuery();
-//		System.out.print("bbb");
-//		rows = mySQLJDBC.executeUpdate();
-//		System.out.print("rows");
-//		mySQLJDBC.close();
-		System.out.print("update status to "+s+" and orderId = "+orderId);
+		if(s.equals("undergoing"))a = 0;
+		else a = 1;
+		System.out.print("a="+a);
+		mySQLJDBC.setPreparedSql("update customerorder set status = ? where oid = ?;",a,orderId);
+		mySQLJDBC.executeUpdate();
+		mySQLJDBC.close();
+//		System.out.print("update status to "+s+" and orderId = "+orderId);
 	}
 	
 	public static void main(String[] args) {

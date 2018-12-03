@@ -40,7 +40,7 @@ public class LoginTest {
 		WebElement inputPasswd = driver.findElement(By.id("password"));
 		WebElement submit = driver.findElement(By.name("submit"));
 		inputEmail.sendKeys("");
-		inputPasswd.sendKeys("unknow");
+		inputPasswd.sendKeys("1");
 		submit.click();
 		Alert alert = driver.switchTo().alert();
 		Thread.sleep(2000);
@@ -53,7 +53,7 @@ public class LoginTest {
 		WebElement inputEmail = driver.findElement(By.id("email"));
 		WebElement inputPasswd = driver.findElement(By.id("password"));
 		WebElement submit = driver.findElement(By.name("submit"));
-		inputEmail.sendKeys("unknow");
+		inputEmail.sendKeys("1");
 		inputPasswd.sendKeys("");
 		submit.click();
 		Alert alert = driver.switchTo().alert();

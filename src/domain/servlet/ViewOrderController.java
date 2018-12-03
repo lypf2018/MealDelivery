@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import domain.bean.Customer;
 import domain.bean.Order;
+import domain.bean.OrderItem;
 import domain.dao.CustomerDao;
 import domain.dao.OrderDao;
+import domain.dao.OrderItemDao;
 
 /**
  * Servlet implementation class ViewOrderController
@@ -45,10 +47,19 @@ public class ViewOrderController extends HttpServlet {
 			 CustomerDao customerDao = new CustomerDao();
 			 Customer customer = new Customer(session.getAttribute("email").toString(), session.getAttribute("passwd").toString());
 			 customer = customerDao.validateCustomer(customer); 
-			 OrderDao orderDao = new OrderDao();
-			 ArrayList<Order> orderList = orderDao.displayOrder(customer.getId());
-			 request.setAttribute("list", orderList);
-			 request.getRequestDispatcher("/vieworder.jsp").forward(request, response);
+			 if(request.getParameter("orderid")==null) {
+				 OrderDao orderDao = new OrderDao();
+				 ArrayList<Order> orderList = orderDao.displayOrder(customer.getId());
+				 request.setAttribute("list", orderList);
+				 request.getRequestDispatcher("/vieworder.jsp").forward(request, response);
+			 }
+			 else {
+				 OrderItemDao orderitemdao = new OrderItemDao();
+				 ArrayList<OrderItem> list = orderitemdao.getOrderDishes(Integer.parseInt(request.getParameter("orderid")));
+				 request.setAttribute("list", list);
+				 request.getRequestDispatcher("/vieworderdetails.jsp").forward(request, response);
+			 }
+
 		 }
 	}
 

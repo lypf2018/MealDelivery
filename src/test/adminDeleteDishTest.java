@@ -8,14 +8,14 @@ public class adminDeleteDishTest {
 	WebDriver driver;
 	@Before
 	public void openAddPage() throws InterruptedException{
-		System.setProperty("webdriver.chrome.driver","chromedriver");
+		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("http://localhost:8080/MealDelivery/DishMngController?type=menu");
 		Assert.assertEquals("Administrator Dish Manage Page", driver.getTitle());
 	}
 	@Test
 	public void testDeleteS() throws InterruptedException{
-		WebElement deleteId = driver.findElement(By.id("64")); // delete an exist dish, item 63 right now exist in my database
+		WebElement deleteId = driver.findElement(By.id("17")); // delete an exist dish, item 63 right now exist in my database
 		deleteId.click();
 		Alert alert = driver.switchTo().alert();
 		alert.accept();

@@ -9,6 +9,7 @@
 <title>Edit Dish Page</title>
 </head>
 <body>
+	<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 	<h1>Edit Dish</h1>
 	<% Dish dish = (Dish)request.getAttribute("list"); %>
 	<form method="post" action="<%=request.getContextPath()%>/DishMngController?type=editPic&id=<%=dish.getId() %>" enctype="multipart/form-data">

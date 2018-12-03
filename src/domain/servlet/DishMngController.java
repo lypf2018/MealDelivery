@@ -216,7 +216,8 @@ public class DishMngController extends HttpServlet {
         
         // 构造临时路径来存储上传的文件, 这个路径相对当前应用的目录
 //        String uploadPath = request.getServletContext().getRealPath("./") + UPLOAD_DIRECTORY;
-        String uploadPath = "/Users/dailu/eclipse-workspace/MealDelivery/WebContent/" + UPLOAD_DIRECTORY;
+//        String uploadPath = "/Users/dailu/eclipse-workspace/MealDelivery/WebContent/" + UPLOAD_DIRECTORY;
+        String uploadPath = "C:/Users/zq/eclipse-workspace/MealDelivery/WebContent/" + UPLOAD_DIRECTORY;
         File uploadDir = new File(uploadPath); // 如果目录不存在则创建
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
@@ -288,7 +289,9 @@ public class DishMngController extends HttpServlet {
         
         // 构造临时路径来存储上传的文件, 这个路径相对当前应用的目录
 //        String uploadPath = request.getServletContext().getRealPath("./") + UPLOAD_DIRECTORY;
-        String uploadPath = "/Users/dailu/eclipse-workspace/MealDelivery/WebContent/" + UPLOAD_DIRECTORY;
+//        String uploadPath = "/Users/dailu/eclipse-workspace/MealDelivery/WebContent/" + UPLOAD_DIRECTORY;
+        String uploadPath = "C:/Users/zq/eclipse-workspace/MealDelivery/WebContent/" + UPLOAD_DIRECTORY;
+        System.out.println(uploadPath);
         File uploadDir = new File(uploadPath); // 如果目录不存在则创建
         if (!uploadDir.exists()) {
             uploadDir.mkdir();

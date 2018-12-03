@@ -28,6 +28,7 @@ function add(){
 <title>Dish Detail</title>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 <a href="<%=request.getContextPath()%>/ProfileController">profile</a><br>
 <a href="<%=request.getContextPath()%>/CartController">shopping cart</a><br>
 			<%
@@ -49,7 +50,7 @@ function add(){
 						<tr>
 							<td><%= dish.getName() %></td>
 							<td><%= dish.getDes() %></td>
-							<td><img src="<%=request.getContextPath()%>/image/<%=dish.getPic() %>"/></td>
+							<td><img src="<%=request.getContextPath()%>/<%=dish.getPic() %>"/></td>
 							<td><%= dish.getPrice() %></td>
 						</tr>
 
@@ -63,7 +64,7 @@ function add(){
     <input type="button" value="-"  id = "decrease" onclick="del()"/>
 	<input type="text" name="quantity" id="quantity" value=1 size="4"/>
 	<input type="button" value="+"  id = "increase" onclick="add()"/>
-  <input type="submit" name="submit" value="Add to cart"><br>    
+  <input type="submit" name="submit" value="Add to cart" id="add"><br>    
 </form><br/>
   						<%
 					}

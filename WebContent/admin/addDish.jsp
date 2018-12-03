@@ -9,6 +9,7 @@
 <title>Add Dish Page</title>
 </head>
 <body>
+	<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 	<h1>Add Dish</h1>
  	
  	<form method="post" action="<%=request.getContextPath()%>/DishMngController?type=addPic" enctype="multipart/form-data">

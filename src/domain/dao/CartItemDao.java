@@ -83,7 +83,15 @@ public class CartItemDao {
 		return false;
 	}
 	
-	
+	public boolean deleteAll(int cid){
+		mySQLJDBC.setPreparedSql("delete from cart\r\n" + 
+				"where cid = ?;", cid);
+		int res = mySQLJDBC.executeUpdate();
+		if (res != -1) {
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Before releasing resources, execute mySQLJDBC.close() method to ensure

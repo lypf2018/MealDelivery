@@ -26,6 +26,7 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 <% ArrayList<Order> list = (ArrayList<Order>) request.getAttribute("list"); 
    int a =1;
 %>
@@ -42,7 +43,7 @@ tr:nth-child(even) {
    <tr>
     <th><%= a %></th>
     <% a=a+1; %>
-    <th><a href="<%=request.getContextPath()%>/ViewOrderController" id="order"><%= order.getOrderID() %></a></th>
+    <th><a href="<%=request.getContextPath()%>/ViewOrderController?orderid=<%= order.getOrderID()%>" ><%= order.getOrderID() %></a></th>
     <th><%= order.getBill() %></th>
     <th><%= order.getTime() %></th>
     <th><%= order.getStatus() %></th>
@@ -50,5 +51,9 @@ tr:nth-child(even) {
   <%} %>
   
 </table>
+<br/>
+<form action="<%=request.getContextPath()%>/MenuController" method="post">
+<INPUT TYPE="submit" VALUE="return">
+</form>
 </body>
 </html>

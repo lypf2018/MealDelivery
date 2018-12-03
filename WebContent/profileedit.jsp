@@ -7,7 +7,8 @@
 <title>edit profile</title>
 </head>
 <body>
-	<form name="proflieform" action="<%=request.getContextPath()%>/ProfileEditController" method="post" >
+	<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
+	<form name="proflieform" action="<%=request.getContextPath()%>/ProfileController?edit=1" method="post" >
 
 	Last Name: <br><input type="text" name="LastName" id="lastname" required><br>
 	First Name: <br><input type="text" name="FirstName" id="firstname" required><br>
@@ -18,7 +19,11 @@
 	Phone Number: <br><input type="text" name="Phone" id="phone" required><br>
 	<br>
 	<input type="submit" name="submit" value="submit"><br>
-	
 	</form>
+	
+	<form action="<%=request.getContextPath()%>/ProfileController" method="post">
+      <INPUT TYPE="submit" VALUE="return">
+    </form>
+
 </body>
 </html>

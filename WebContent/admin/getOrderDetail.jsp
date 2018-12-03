@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 <% String orderId = (String)request.getAttribute("id");
    Order order = (Order)request.getAttribute("order");
    LinkedList<Dish> dishList = order.getDish();
@@ -55,7 +56,7 @@
 </div> 
 <br>
 <div>
-<a href="<%=request.getContextPath()%>/admin/ShowOrder?id=all ">Back</a>
+<a href="<%=request.getContextPath()%>/admin/ShowOrderController?id=all ">Back</a>
 </div>
 
 </body>

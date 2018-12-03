@@ -20,6 +20,7 @@ function del() {
     </style>  
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 <div style="height:80px; width:100%;" >
 	<h1 align="center">Dish Information</h1>
 </div>

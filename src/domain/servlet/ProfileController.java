@@ -40,15 +40,51 @@ public class ProfileController extends HttpServlet {
 		 else {
 			 CustomerDao customerDao = new CustomerDao();
 			 Customer customer = new Customer(session.getAttribute("email").toString(), session.getAttribute("passwd").toString());
-			 customer = customerDao.validateCustomer(customer);
-			 request.setAttribute("LastName", customer.getLastName());
-			 request.setAttribute("FirstName", customer.getFirstName());
-			 request.setAttribute("street", customer.getStreet());
-			 request.setAttribute("city", customer.getCity());
-			 request.setAttribute("zip", customer.getZip());
-			 request.setAttribute("phone", customer.getPhone());
-			 request.setAttribute("state", customer.getState());
-			 request.getRequestDispatcher("/profile.jsp").forward(request, response);
+			 if(request.getParameter("edit")==null) {
+				 customer = customerDao.validateCustomer(customer);
+				 request.setAttribute("LastName", customer.getLastName());
+				 request.setAttribute("FirstName", customer.getFirstName());
+				 request.setAttribute("street", customer.getStreet());
+				 request.setAttribute("city", customer.getCity());
+				 request.setAttribute("zip", customer.getZip());
+				 request.setAttribute("phone", customer.getPhone());
+				 request.setAttribute("state", customer.getState());
+				 request.getRequestDispatcher("/profile.jsp").forward(request, response);
+			 }			 
+		/*	 else if(request.getParameter("edit").equals("0")) {
+				 customer = customerDao.validateCustomer(customer);
+				 request.setAttribute("LastName", customer.getLastName());
+				 request.setAttribute("FirstName", customer.getFirstName());
+				 request.setAttribute("street", customer.getStreet());
+				 request.setAttribute("city", customer.getCity());
+				 request.setAttribute("zip", customer.getZip());
+				 request.setAttribute("phone", customer.getPhone());
+				 request.setAttribute("state", customer.getState());
+				 request.getRequestDispatcher("/profile.jsp").forward(request, response);
+			 }*/
+			 else if(request.getParameter("edit").equals("1")) {
+				 customer.setFirstName(request.getParameter("FirstName"));
+				 customer.setLastName(request.getParameter("LastName"));
+				 customer.setStreet(request.getParameter("Street"));
+				 customer.setCity(request.getParameter("City"));
+				 customer.setState(request.getParameter("State"));
+				 customer.setZip(request.getParameter("ZipCode"));
+				 customer.setPhone(request.getParameter("Phone"));
+				 customerDao.updateCustomer(customer);
+				 request.getRequestDispatcher("/ProfileController?edit=0").forward(request, response);
+			 }
+			 else {
+				 customer = customerDao.validateCustomer(customer);
+				 request.setAttribute("LastName", customer.getLastName());
+				 request.setAttribute("FirstName", customer.getFirstName());
+				 request.setAttribute("street", customer.getStreet());
+				 request.setAttribute("city", customer.getCity());
+				 request.setAttribute("zip", customer.getZip());
+				 request.setAttribute("phone", customer.getPhone());
+				 request.setAttribute("state", customer.getState());
+				 request.getRequestDispatcher("/profile.jsp").forward(request, response);
+			 }
+
 		 }
 	}
 

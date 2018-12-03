@@ -39,11 +39,15 @@ public class insertCartController extends HttpServlet {
 		int quantity = Integer.valueOf(q);
 		CartItem item = cartItemDao.checkExist(cid, did);
 		if (item != null) {
-			cartItemDao.updateItem(cid, did, item.getQuantity() + quantity);
+			if (item.getQuantity() + quantity == 0) {
+				cartItemDao.deleteItem(cid, did);
+			} else {
+				cartItemDao.updateItem(cid, did, item.getQuantity() + quantity);
+			}
 		} else {
 			cartItemDao.insertCart(cid, did, quantity);
 		}
-		request.getRequestDispatcher("/DishDetailController?id="+did).forward(request, response);
+		request.getRequestDispatcher("/CartController").forward(request, response);
 	}
 
 	/**

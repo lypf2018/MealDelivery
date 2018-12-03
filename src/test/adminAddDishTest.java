@@ -8,9 +8,9 @@ public class adminAddDishTest {
 	WebDriver driver;
 	@Before
 	public void openAddPage() throws InterruptedException{
-		System.setProperty("webdriver.chrome.driver","chromedriver");
+		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get("http://localhost:8080/MealDelivery/DishMngController?type=menu");
+		driver.get("http://localhost:8080/MealDelivery/DishMngController?type=add");
 		Assert.assertEquals("Add Dish Page", driver.getTitle());
 	}
 	@Test

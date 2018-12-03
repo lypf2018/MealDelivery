@@ -24,39 +24,45 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/logout.jsp">logout</a><br>
 <table>
   <tr>
     <th>Last Name</th>
-    <th>${LastName}</th>
+    <th id="lastname">${LastName}</th>
   </tr>
   <tr>
     <td>First Name</td>
-    <td>${FirstName}</td>
+    <td id="firstname">${FirstName}</td>
   </tr>
   <tr>
     <td>Street</td>
-    <td>${street}</td>
+    <td id="street">${street}</td>
   </tr>
   <tr>
     <td>City</td>
-    <td>${city}</td>
+    <td id="city">${city}</td>
   </tr>
   <tr>
     <td>State</td>
-    <td>${state}</td>
+    <td id="state">${state}</td>
   </tr>
   <tr>
     <td>ZipCode</td>
-    <td>${zip}</td>
+    <td id="zip">${zip}</td>
   </tr>
   <tr>
     <td>phone number</td>
-    <td>${phone}</td>
+    <td id="phone">${phone}</td>
   </tr>
 </table>
 <br /> 
 
-<a href="<%=request.getContextPath()%>/profileedit.jsp">Edit Profile</a>
+<a href="<%=request.getContextPath()%>/profileedit.jsp" id="edit" >Edit Profile</a>
+
+<br/>
+<form action="<%=request.getContextPath()%>/MenuController" method="post">
+<INPUT TYPE="submit" VALUE="return">
+</form>
 
 </body>
 </html>

@@ -14,9 +14,10 @@
 </head>
 <body>
 
+	<a href="<%=request.getContextPath()%>/logout.jsp" id="logout">logout</a><br>
 	<a href="<%=request.getContextPath()%>/ProfileController" id="profile">profile</a><br>
 	<a href="<%=request.getContextPath()%>/ViewOrderController" id="order">orders</a><br>
-	<a href="<%=request.getContextPath()%>/CartController">shopping cart</a>
+	<a href="<%=request.getContextPath()%>/CartController" id="cart">shopping cart</a>
 	
 	<style>
 		.container {
@@ -57,7 +58,7 @@
 						
 						<div class="figure">
 						<figure>
- 							<p><img src="<%=request.getContextPath()%>/image/<%=dish.getPic() %>"
+ 							<p><img src="<%=request.getContextPath()%>/<%=dish.getPic() %>"
     							alt="<%=dish.getName()%>">
   							<figcaption><a href = "<%=request.getContextPath()%>/DishDetailController?id=<%=dish.getId()%>" id = <%=dish.getId()%> ><%=dish.getName()%></a></figcaption>
 						</figure>
