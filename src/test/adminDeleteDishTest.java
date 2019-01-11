@@ -10,7 +10,16 @@ public class adminDeleteDishTest {
 	public void openAddPage() throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get("http://localhost:8080/MealDelivery/DishMngController?type=menu");
+		driver.get("http://localhost:8080/MealDelivery/administratorlogin.jsp");
+		WebElement inputUsername = driver.findElement(By.id("username"));
+		WebElement inputPasswd = driver.findElement(By.id("password"));
+		WebElement submit = driver.findElement(By.name("submit"));
+		inputUsername.sendKeys("1");
+		inputPasswd.sendKeys("1");
+		submit.click();
+		WebElement backToDish = driver.findElement(By.id("backtodish"));
+		backToDish.click();
+		Thread.sleep(2000);
 		Assert.assertEquals("Administrator Dish Manage Page", driver.getTitle());
 	}
 	@Test

@@ -17,7 +17,18 @@ public class AdUpdateDishTest {
 	public void openAddDishPage() throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get("http://localhost:8080/MealDelivery/admin/AdEditDishController?id=9");
+		driver.get("http://localhost:8080/MealDelivery/administratorlogin.jsp");
+		WebElement inputUsername = driver.findElement(By.id("username"));
+		WebElement inputPasswd = driver.findElement(By.id("password"));
+		WebElement submit = driver.findElement(By.name("submit"));
+		inputUsername.sendKeys("1");
+		inputPasswd.sendKeys("1");
+		submit.click();
+		WebElement backToDish = driver.findElement(By.id("backtodish"));
+		backToDish.click();
+		WebElement addDish = driver.findElement(By.id("dishid9"));
+		addDish.click();
+		Thread.sleep(2000);
 		Assert.assertEquals("Edit Dish Page", driver.getTitle());
 	}
 	

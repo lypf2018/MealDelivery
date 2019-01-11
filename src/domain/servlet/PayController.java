@@ -9,8 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import domain.bean.CartItem;
+import domain.bean.Customer;
+import domain.bean.Order;
 import domain.dao.CartItemDao;
 import domain.dao.OrderDao;
 
@@ -34,25 +37,34 @@ public class PayController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// insert order
+		// check if the cart is empty
+
 		String bill = request.getParameter("bill");
-		String cid = request.getParameter("cid");
-		OrderDao orderDao = new OrderDao();
-		int oid = orderDao.saveOrder(cid, bill);
-		
-		// insert order details
-		int CID = Integer.valueOf(cid);
-		CartItemDao cartItemDao = new CartItemDao();
-		List<CartItem> dish = new LinkedList<>();
-		dish = cartItemDao.getCartDishes(CID);
-		for (CartItem item : dish) {
-			orderDao.saveOrderDetails(oid, item.getId(), item.getQuantity());
+		if (bill.equals("0.0")) {
+			request.getRequestDispatcher("/emptyCartMsg.jsp").forward(request, response);
+		} else {
+			// insert order
+			String cid = request.getParameter("cid");
+			OrderDao orderDao = new OrderDao();
+			int oid = orderDao.saveOrder(cid, bill);
+			
+			// insert order details
+			
+			int CID = Integer.valueOf(cid);
+			CartItemDao cartItemDao = new CartItemDao();
+			List<CartItem> dish = new LinkedList<>();
+			dish = cartItemDao.getCartDishes(CID);
+			for (CartItem item : dish) {
+				orderDao.saveOrderDetails(oid, item.getId(), item.getQuantity());
+			}
+			
+			// delete cart items
+			cartItemDao.deleteAll(CID);
+			
+			request.getRequestDispatcher("/CartController").forward(request, response);
 		}
 		
-		// delete cart items
-		cartItemDao.deleteAll(CID);
 		
-		request.getRequestDispatcher("/CartController").forward(request, response);
 	}
 
 	/**

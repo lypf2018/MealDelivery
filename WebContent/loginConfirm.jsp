@@ -9,7 +9,7 @@
 <body>
 	<h1 id="msg"> ${msg}</h1>
 	<br/>
-	<a href="<%=request.getContextPath()%>/DishMngController?type=menu">Back to dish list</a>
+	<a href="<%=request.getContextPath()%>/DishMngController?type=menu" id="backtodish">Back to dish list</a>
 	
 </body>
 </html>

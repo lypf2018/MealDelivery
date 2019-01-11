@@ -66,7 +66,8 @@ public class AdminDishDao {
 	
 	public int insertDish(Dish dish) {
 		int rows = 0;
-		if (dish.getName() != null) {
+		System.out.println("name="+dish.getName());
+		if (dish.getName() != null && dish.getName() != "") {
 			mySQLJDBC.setPreparedSql("insert into dish(name, description, picture, price, categoryid) values(?,?,?,?,?);",
 					dish.getName(),dish.getDes(),dish.getPic(),dish.getPrice(),dish.getDCId());
 			rows = mySQLJDBC.executeUpdate();

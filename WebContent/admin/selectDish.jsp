@@ -26,8 +26,8 @@ function del() {
 </div>
 <div style="padding-right:50px;">
 	<div style="height:400px; width:10%; padding-top:6px; text-align:center;">
-		<a href="<%=request.getContextPath()%>/DishMngController?type=add">add dish</a><br/><br/><br/>
-		<a href="<%=request.getContextPath()%>/admin/showOrder">show order</a>
+		<a href="<%=request.getContextPath()%>/DishMngController?type=add" id="adddish" >add dish</a><br/><br/><br/>
+		<a href="<%=request.getContextPath()%>/admin/showOrder" id="showorder">show order</a>
 	</div>
 	<div style="height:900px; width:87%; text-align:center;">
 		<table border='1' cellspacing='0' width="100%">
@@ -55,7 +55,7 @@ function del() {
 							<td width="8%"><%= dish.getPrice() %></td>
 							<td width="10%"><%= dish.getDCId() %></td>
 							<td width="12%">
-								<a href="<%=request.getContextPath()%>/DishMngController?type=edit&id=<%=dish.getId()%>">edit</a>
+								<a href="<%=request.getContextPath()%>/DishMngController?type=edit&id=<%=dish.getId()%>" id="dishid<%=dish.getId()%>">edit</a>
 							</td>
 							<td width="12%">
 								<a id="<%= dish.getId() %>" href="<%=request.getContextPath()%>/DishMngController?type=delete&id=<%=dish.getId()%>" onclick="javascript:return del();">delete</a>
